@@ -1,0 +1,82 @@
+<?php 
+  include "signup.php";
+ ?>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <style>
+    .error-block{
+      color: red;
+    }
+  </style>
+  <title>Sign Up</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="text-justify"><b>Signup</b></h3>
+        <hr>
+        <form action="signup.php" class="from-horizontal" name = "signup_form" method = "post">
+          <div class="from-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">Email*</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="Enter Email" name='email' required="required">
+                    <br>
+                </div>
+          </div>
+          <div class="form-group">
+            <label for = "exampleInputName2" class = "col-sm-2 control-lable">Name*</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="exampleInputName2" placeholder="Enter Name" name = 'name' required="required">
+              <br>
+            </div>
+          </div>
+          <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password*</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Enter Password" name = 'password' required="required">
+                    <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Re-enter Password*</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="Re-enter Password" name = 'confpassword' required="required">
+                    <br>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="inputAddress" class="col-sm-2 control-label">Address:</label>
+              <div class="col-sm-10">
+                <input type="text" name="address" id="inputAddress" class="form-control" placeholder="Address" required="required">
+                <br>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputPhone" class="col-sm-2 control-label">Phone:</label>
+              <div class="col-sm-10">
+                <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone Number" required="required" pattern="\d\d\d\d\d\d\d\d\d\d" >
+              </div>
+              <br>
+            </div>
+           <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-default" value = "Submit" name = "submit">Sign up</button>
+              </div>
+            </div>
+        </form>
+        <span class="error-block"><b><?php if ($serror != "") {
+                echo $serror;
+              }  ?></b>
+        </span>
+        <br>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</html>

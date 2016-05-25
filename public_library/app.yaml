@@ -1,0 +1,39 @@
+application: publiclibrary
+version: 1
+runtime: php55
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: favicon.ico
+  upload: favicon\.ico
+
+- url: /
+  script: index.html
+- url: /login
+  script: login.php
+- url: /signup
+  script: signup.html
+- url: /signup.php
+  script: signup.php
+- url: /profile
+  script: profile.html
+- url: /login
+  script: login.php
+- url: /logout
+  script: logout.php
+- url: /borrow
+  script: borrow.php
+- url: /admin
+  script: admin.html
+- url: /admin.php
+  script: admin.php
+- url: /return
+  script: return.php
+- url: /book_search.php
+  script: book_search.php
+- url: /author_search.php
+  script: author_search.php
+- url: /add.php
+  script: add.php

@@ -1,0 +1,106 @@
+<?php 
+include "login.php";
+ ?>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<style>
+		.error-block{
+			color: red;
+		}
+	</style>
+	<title>Public Library</title>
+</head>
+<body>
+	
+		<nav class="navbar navbar-default">
+  			<div class="container-fluid">	
+   				 <div class="navbar-header">
+      				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        				<span class="sr-only">Toggle navigation</span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+      				</button>
+      				<a class="navbar-brand" href="#">BOOKS</a>
+    			</div>
+    			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      					<ul class= "nav navbar-nav">
+      						<li><a href="#">About</a></li>
+      					</ul>
+      				</div>
+      		</div>
+      	</nav>
+    <div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h1>Public Library</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<hr>
+				<p class='lead'>This platform helps you borrow books online</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-8">
+						<h3><b>Sign up</b></h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-md-offset-3">
+						<button type="button" class="btn btn-primary btn-lg btn-block" onclick="location.href = 'signup';">SignUp</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-6">
+						<h3 class="text-justify"><b>Login</b></h3>
+					</div>
+				</div>
+				<form class="form-horizontal" action="" method="post" name = "login_form" >
+  					<div class="form-group">
+    					<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+    						<div class="col-sm-10">
+      							<input type="email" class="form-control" id="inputEmail3" placeholder="Email" name='email'>
+    						</div>
+  					</div>
+  					<div class="form-group">
+    						<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+    						<div class="col-sm-10">
+      							<input type="password" class="form-control" id="inputPassword3" placeholder="Password" name = 'password'>
+    						</div>
+  					</div>
+				    <div class="form-group">
+				      <div class="col-sm-offset-2 col-sm-10">
+				        <div class="checkbox">
+				          <label>
+				            <input type="checkbox"> Remember me
+				          </label>
+				        </div>
+				      </div>
+				      <span class="error-block"><?php if ($error != "") {
+				      	echo $error;
+				      }  ?></span>
+				    </div>
+				    <div class="form-group">
+    					<div class="col-sm-offset-2 col-sm-10">
+      						<button type="submit" class="btn btn-default" value = "Submit" name = "submit">Sign in</button>
+    					</div>
+  					</div>
+				</form>
+			</div>
+
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<?php 
+    include "book.php";
+	$lifetime = 600;
+	session_set_cookie_params($lifetime);
+	session_start();
+	if (empty($_SESSION['user'])) {
+		echo " <script> location.replace('/'); </script>";
+		exit();
+	}
+ ?>
+ <!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Welcome <?php $_SESSION['user'] ?></title>
+
+		<!-- Bootstrap CSS -->
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/profile">Home</a>
+				</div>
+			
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="logout">Log out</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+			<h1>Welcome: <?php echo $_SESSION['user']; ?></h1>
+			<div class="row">
+				<div class="col-md-4">
+					<form action="book_search.php" method = "POST">
+						<input type="search" name="book" id="inputBook" class="form-control" value="" placeholder="Book Title">
+						<br>
+						<button type="submit" class="btn btn-primary">Search</button>
+					</form>
+				</div>
+				<div class="col-md-4">
+				</div>
+				<div class="col-md-4">
+					<form action="author_search.php" method ="POST">
+						<input type="search" name="author" id="inputBook" class="form-control" value="" placeholder="Author name">
+						<br>
+						<button type="submit" class="btn btn-primary">Search</button>
+					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-8">
+					<h3>Catalog</h3>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Author</th>
+								<th>Publisher</th>
+								<th>Genre</th>
+								<th>Copies</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php for ($i=0; $i <$rowno ; $i++) { 
+							 ?>
+							<tr>
+								<td><?php echo $Title[$i] ?></td>
+								<td> <?php echo $Author[$i] ?></td>
+								<td> <?php echo $Publisher[$i] ?></td>
+								<td><?php echo $Genre[$i] ?></td>
+								<td><?php echo $Copies[$i] ?></td>
+								<td>
+									<form action="borrow" method="POST">
+										<input type="hidden" name="ISBN" id="inputEcho" class="form-control" value="<?php echo "$ISBN[$i]" ?>">
+										<input type="hidden" name="Title" id="inputEcho" class="form-control" value="<?php echo "$Title[$i]" ?>">
+										<button type="submit" class="btn btn-primary">Borrow</button>
+									</form>
+								</td>
+							</tr>
+							<?php } ?>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>
+
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	</body>
+	<?php unset($_SESSION) ?>
+</html>
